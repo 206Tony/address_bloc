@@ -46,4 +46,32 @@ class AddressBook
 			add_entry(row_hash["name"], row_hash["phone_number"], row_hash["email"])
 		end
 	end
+
+	# Search AddressBook for a specific entry by name
+	def binary_search(name)
+		# #1 save leftmost item in the array in var named lower and upper for the rightmost
+		lower = 0
+		upper = entries.length - 1 #rightmost item
+
+		# #2 loop while lower index is less than r equal to upper index
+		while lower <= upper
+		# #3 find mid index by summing up and low and dividing by 2
+		#Ruby truncates any dec # if up is 5 and low 0 mid is 2
+		#then retrieve mid entry index and store in mid_name
+			mid = (lower + upper) / 2
+			mid_name = entries[mid].name
+		
+		# #4 compare name being searched with name to mid_name use == makes search case sensitive
+			if name == mid_name 
+				return entries[mid]
+			elsif name < mid_name
+				upper = mid -1
+			elsif name > mid_name 
+				lower = mid + 1 
+			end
+		end
+
+		# #5 if divide and conquer returns no match return nil
+		return nil
+	end
 end
