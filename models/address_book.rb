@@ -74,4 +74,13 @@ class AddressBook
 		# #5 if divide and conquer returns no match return nil
 		return nil
 	end
+
+	def iterative_search(name)
+		@entries.each do |entry|
+			if entry.name == name
+				return entry
+			end
+		end
+		return nil
+	end
 end
