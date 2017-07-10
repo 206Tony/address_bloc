@@ -12,6 +12,18 @@ RSpec.describe AddressBook do
 		expect(entry.email).to eq expected_email
 	end
 
+	context "#nuke" do
+		it "should deletes all entries" do
+			book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+			book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+			book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+
+			book.nuke
+			expect(book.entries.size).to eq 0
+		end
+	end
+
+
 	# #2 it explains functionality of model being tested in readable form
 	#RSpec takes contents of describe and it and outputs them nicely to command line when test is executed
 

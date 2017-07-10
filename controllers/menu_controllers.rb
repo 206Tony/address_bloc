@@ -16,7 +16,8 @@ class MenuController
 		puts "3 - Search for an entry"
 		puts "4 - Import entries from a CSV"
 		puts "5 - View entry n"
-		puts "6 - Exit"
+		puts "6 - Nuke all Entries"
+		puts "7 - Exit"
 		print "Enter your selection: "
 
 		# #3 retrieve user input from command line using gets. gets reads next line fron standard input.
@@ -46,7 +47,12 @@ class MenuController
 			entry_n_submenu
 			main_menu
 		when 6
-			puts "Good-bye!"
+			system "clear"
+			@address_book.nuke
+			puts "Some people wanna see the world burn!"
+			main_menu
+		when 7
+			puts "Later Gator!"
 			# #8 terminate program using exit(0) 0 signals exit without error
 			exit(0)
 			# #9 use else to catch invalid user input and prompt to retry
